@@ -10,28 +10,33 @@ class mascot:
         self.energy = energy
 
     def sleep(self):
-        print("zzzz")
+        print(f" {self.name} is Sleeping, zzzz")
         self.energy += 25
-
-    def eat(self,weight):
-        print("Yummy!")
+        return self
+    
+    def eat(self):
         self.energy += 5
         self.health +=10
-        print(self.treat + ", " + str(weight) + " kgs")
+        
+        return self
 
     def play(self):
-        print("Playing!")
+        print( self.name ," is playing Excitedly!")
         self.health += 5
-
+        return self
+    
     def sound(self):
         print("pet noise")
+        return self
 
 class doggy(mascot):
     def __init__(self, name, treat, health, energy):
         super().__init__(name, "dog", treat, health, energy)
+        
 
     def sound(self):
         print("Bark!, Bark!")
+        return self
 
 class kitty(mascot):
     def __init__(self, name, treat, health, energy):
@@ -40,37 +45,5 @@ class kitty(mascot):
     def sound(self):
         print("meeeow!!")
 
-class ninja:
-    def __init__(self,name,ln,pets,prize,food):
-        self.name = name
-        self.ln = ln
-        self.pets = pets
-        self.prize = prize
-        self.food= food
-
-    def walk(self):
-        print("Walking")
-        for each in self.pets:
-            each.play()
-
-    def feed(self, weight):
-        print("yuuum")
-        for each in self.pets:
-            each.eat(weight)
-
-    def bathe(self):
-        for each in self.pets:
-            each.sound()
 
 
-
-
-firulais = doggy("firulais","chow",50,25)
-
-tostadora = kitty("Tostaddora","churus",90,10)
-
-carlos = ninja("Carlos","perez",[firulais, tostadora],"meat",{"dog":"purina", "cat":"cat chow"})
-
-carlos.feed(50)
-
-print(tostadora.type)
