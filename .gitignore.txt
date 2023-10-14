@@ -6,4 +6,5 @@
 *.rar
 *.tar
 *.zip
-/.venvi
+*.venvi/
+git rm --cached *.venvi/
