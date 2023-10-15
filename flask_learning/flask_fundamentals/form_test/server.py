@@ -10,13 +10,13 @@ def index():
 def create_user():
     print("Got Post Info")
     print(request.form)
-    session['username'] = request.form['name']
+    session['name'] = request.form['name']
     session['email'] = request.form['email']
     return redirect('/show')
 
-@app.route('show')
+@app.route('/show')
 def show_user():
-    return render_template('show.html', name_on_template=session['username'], email_on_template=session['useremail'])
+    return render_template('show.html', name_on_template=session['username'], email_on_template=session['email'])
 
 
 #Rutas Arriba de esto

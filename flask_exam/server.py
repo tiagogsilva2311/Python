@@ -8,15 +8,16 @@ def index():
 
 @app.route('/users', methods=['POST'])
 def create_user():
-    print("Got Post Info")
-    print(request.form)
-    session['username'] = request.form['name']
+    session['name'] = request.form['name']
+    session['last_name']=request.form['last_name']
     session['email'] = request.form['email']
-    return redirect('/show')
+    session['password'] = request.form['password']
+    session['confirm_password']= request.form['confirm_password']
+    return redirect('/user')
 
-@app.route('/show')
+@app.route('/user')
 def show_user():
-    return render_template('show.html', name_on_template=session['username'], email_on_template=session['useremail'])
+    return render_template('show.html', name_on_template=session['name'], email_on_template=session['email'], last_name_on_template=session['last_name'])
 
 
 #Rutas Arriba de esto
